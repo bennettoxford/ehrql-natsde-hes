@@ -57,7 +57,7 @@ BACKEND_ALIASES = {
     "emisv2": "ehrql.backends.emisv2.EMISV2Backend",
     "tpp": "ehrql.backends.tpp.TPPBackend",
     "databricks": "ehrql.backends.databricks.DatabricksBackend",
-    "graphnet": "ehrql.backends.graphnet.GraphnetBackend",
+    "nationalsde": "ehrql.backends.nationalsde.NationalSDEBackend",
 }
 
 

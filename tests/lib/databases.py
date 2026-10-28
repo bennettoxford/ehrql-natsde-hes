@@ -234,7 +234,7 @@ def make_spark_container_database(containers):  # pragma: cover-spark-only
     if not containers.is_running(container_name):  # pragma: no cover
         containers.run_bg(
             name=container_name,
-            # This is the version of Spark that Graphnet use.
+            # This is the version of Spark that Graphnet used.
             image="docker.io/bitnamilegacy/spark:3.2.1-debian-11-r12",
             entrypoint="/bin/bash",
             command=[

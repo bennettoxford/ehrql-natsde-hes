@@ -12,7 +12,7 @@ def get_sibling_subclasses(cls):
     include:
 
         ehrql.backends.tpp.TPPBackend
-        ehrql.backends.graphet.GraphnetBackend
+        ehrql.backends.graphet.NationalSDEBackend
         ...
 
     This is useful for tests and for generating documentation, but isn't intended for

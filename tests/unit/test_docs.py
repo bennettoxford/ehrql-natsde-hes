@@ -5,7 +5,7 @@ from ehrql.docs.render_includes.specs import render_specs
 def test_generate_docs():
     data = generate_docs()
 
-    # TODO: expected = {"DatabricksBackend", "GraphnetBackend", "TPPBackend"}
+    # TODO: expected = {"DatabricksBackend", "NationalSDEBackend", "TPPBackend"}
     expected = {"EMIS", "TPP"}
     output = {b["name"] for b in data["backends"]}
     assert expected <= output
@@ -66,7 +66,7 @@ def test_render(tmp_path):
         # TODO:
         # "contracts.md",
         # "TPPBackend.md",
-        # "GraphnetBackend.md",
+        # "NationalSDEBackend.md",
         # "DatabricksBackend.md",
     }
 
