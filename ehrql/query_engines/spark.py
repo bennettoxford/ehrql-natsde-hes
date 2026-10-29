@@ -57,6 +57,9 @@ class SparkQueryEngine(BaseSQLQueryEngine):  # pragma: cover-spark-only
         # Spark doesn't support temporary tables, so we create
         # a new persistent table and drop it in the cleanup
         # queries
+        # Nb. National SDE *does* support temporary tables
+        # (and also requires DROP TEMPORARY TABLE if you want to drop them, which
+        # maybe SQLAlchemy doesn't support!)
         table_name = f"ehrql_{self.global_unique_id}_inline_data_{self.get_next_id()}"
         columns, rows = self.backend.modify_inline_table_args(columns, rows)
         table = GeneratedTable(
