@@ -21,6 +21,14 @@ from ehrql.main import load_dataset_definition, load_measure_definitions
 # This is run automatically by a scheduled action which will create a PR if there are
 # any changes to be made.
 EXTERNAL_STUDIES = {
+    "national-sde-example1": dict(
+        repo="bennettoxford/hdrs-national-sde-hes-tabulations-ehrql",
+        branch="main",
+        file_globs=[
+            "analysis/dataset_definition.py",
+        ],
+        dataset_definitions=["analysis/dataset_definition.py"],
+    ),
     "test-age-distribution": dict(
         repo="opensafely/test-age-distribution",
         branch="main",
