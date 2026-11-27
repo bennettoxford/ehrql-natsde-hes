@@ -61,7 +61,7 @@ dataset.add_event_table(
     # if we were using hospital_admissions (outlined in backend/databricks), we
     # could probably add a column like hes_year="2024-25" & this could be like:
     # year=elective_admissions.hes_year
-    year=case(when(elective_admissions.procodet != "").then("2024-25")),
+    year=case(when(emergency_admissions.procodet != "").then("2024-25")),
     provider_code=emergency_admissions.procodet,
     hospital_code=emergency_admissions.sitetret,
     primary_diagnosis_code=emergency_admissions.diag_4_01,

@@ -361,11 +361,11 @@ test-all-no-spark *ARGS: (test-all '-k "not spark"' ARGS)
 
 # run scripts/dbx
 dbx *ARGS:
-    @$BIN/python scripts/dbx {{ ARGS }}
+    uv run python scripts/dbx {{ ARGS }}
 
 # ensure a working databricks cluster is set up and running
 databricks-env: devenv
-    $BIN/python scripts/dbx start --wait --timeout 180
+    uv run python scripts/dbx start --wait --timeout 180
 
 databricks-test *ARGS: devenv databricks-env
     #!/usr/bin/env bash
@@ -374,8 +374,8 @@ databricks-test *ARGS: devenv databricks-env
 
 # Run the spec tests only, excluding spark tests which are slow. Optional args are passed to pytest.
 test-spec-no-spark *ARGS: devenv
-    $BIN/python -m pytest tests/spec -k "not spark" {{ ARGS }}
+    uv run python -m pytest tests/spec -k "not spark" {{ ARGS }}
 # Run all or some pytest tests, excluding spark tests which are slow. Optional args are passed to pytest, including the path of tests to run.
 
 test-no-spark *ARGS="tests": devenv
-    $BIN/python -m pytest -k "not spark" {{ ARGS }}
+    uv run python -m pytest -k "not spark" {{ ARGS }}

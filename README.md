@@ -15,6 +15,22 @@ See:
 * [the NationalSDE table definitions](https://github.com/bennettoxford/ehrql-natsde-hes/blob/aa9bc4a878d38fadc3b04580e425ae2550109419/ehrql/tables/nationalsde.py)
 * [the example tabulation in ehrQL](https://github.com/bennettoxford/ehrql-natsde-hes/blob/aa9bc4a878d38fadc3b04580e425ae2550109419/tests/acceptance/external_studies/national-sde-example1/analysis/dataset_definition.py) & associated files
 
+Generate SQL with this command:
+
+```bash
+uv run ehrql generate-sql  tests/acceptance/external_studies/national-sde-example1/analysis/dataset_definition.py --backend nationalsde
+```
+
+If you have a databricks server with data in the default schema, generate outputs with this command:
+
+```bash
+uv run ehrql generate-dataset  tests/acceptance/external_studies/national-sde-example1/analysis/dataset_definition.py --backend nationalsde --output example-1/:csv --dsn databricks://token:$DATABRICKS_TOKEN@$DATABRICKS_HOST?http_path=/sql/1.0/warehouses/$DATABRICKS_SQL_WAREHOUSE_ID
+```
+
+* DATABRICKS_TOKEN is from User->Settings->Developer->Access Tokens->Manage in Databricks interface
+* DATABRICKS_HOST like `lotsofnumbers.n.gcp.databricks.com`
+* DATABRICKS_SQL_WAREHOUSE_ID is 16 characters
+
 # For developers
 
 See [DEVELOPERS.md](DEVELOPERS.md).

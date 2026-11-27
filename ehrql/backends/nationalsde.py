@@ -7,7 +7,7 @@ from ..query_engines.spark import SparkQueryEngine
 from .base import MappedTable, SQLBackend
 
 
-SCHEMA = os.environ.get("GRAPHNET_DB_SCHEMA", default="TRE")
+SCHEMA = os.environ.get("NATIONALSDE_DB_SCHEMA", default="default")
 
 
 class NationalSDEBackend(SQLBackend):
@@ -18,7 +18,6 @@ class NationalSDEBackend(SQLBackend):
     patient_join_column = "patient_id"
     implements = [ehrql.tables.smoketest]
 
-    # TODO: not sure this table is available, but we're not using it rn
     patients = MappedTable(
         schema=SCHEMA,
         source="Patients",
@@ -43,11 +42,13 @@ class NationalSDEBackend(SQLBackend):
     )
 
     artificial_hes_apc_2425 = MappedTable(
+        schema=SCHEMA,
         source="artificial_hes_apc_2425",
         columns=hes_apc_columns,
     )
 
     artificial_hes_apc_2223 = MappedTable(
+        schema=SCHEMA,
         source="artificial_hes_apc_2223",
         columns=hes_apc_columns,
     )
